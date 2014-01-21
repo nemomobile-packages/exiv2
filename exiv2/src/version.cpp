@@ -257,8 +257,6 @@ EXIV2API void dumpLibraryInfo(std::ostream& os)
     os << "dll="      << dll                    << endl;
     os << "debug="    << debug                  << endl;
     os << "version="  << __VERSION__            << endl;
-    os << "date="     << __DATE__               << endl;
-    os << "time="     << __TIME__               << endl;
 
     if ( libs.begin() != libs.end() ) {
         os << "executable=" << *libs.begin() << endl;
