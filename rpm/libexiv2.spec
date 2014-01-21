@@ -3,8 +3,8 @@ Name:       libexiv2
 Summary:    C++ library for metadata handling for image files
 Version:    0.2.4
 Release:    1
-Group:      System/GUI/Other
-License:    GPL2
+Group:      System/Libraries
+License:    GPLv2
 Url:        http://www.exiv2.org
 Source0:    %{name}-%{version}.tar.bz2
 BuildRequires: expat-devel
@@ -15,16 +15,13 @@ C++ library for metadata handling for image files.
 
 %package devel
 Summary:   Development headers
-License:   GPL v.2
-Group:     System/GUI/Other
+Requires:  %{name} = %{version}
 
 %description devel
 Development headers.
 
 %package -n exiv2-tools
 Summary:   Exiv2 binary
-License:   GPL v.2
-Group:     Applications/Multimedia
 
 %description -n exiv2-tools
 Exiv2 binary for image metadata manipulation.
@@ -35,11 +32,10 @@ Exiv2 binary for image metadata manipulation.
 
 %build
 %configure
-make %{?_smp_mflags};
+make %{?_smp_mflags}
 
 %install
-rm -rf %{buildroot}
-make install DESTDIR="%buildroot";
+make install DESTDIR=%{buildroot}
 %find_lang exiv2
 
 %post -p /sbin/ldconfig
